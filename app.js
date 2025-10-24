@@ -408,7 +408,7 @@ viewOrderHistoryBtn.addEventListener('click', () => {
                 const itemsHTML = order.cart.map(item => `<li>${item.quantity} × ${item.name} (RM${item.price})</li>`).join('');
                 orderDiv.innerHTML = `
                     <h3>Order ${index + 1} — ${order.date}</h3>
-                    <p><strong>Room:</strong> ${order.name}</p>
+                    <p><strong>Name:</strong> ${order.name}</p>
                     <p><strong>Phone:</strong> ${order.phone}</p>
                     <ul>${itemsHTML}</ul>
                 `;
