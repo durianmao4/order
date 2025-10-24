@@ -230,7 +230,7 @@ const changeQuantityCart = (product_id, type) => {
 // Checkout and name modal
 const checkout = () => {
     if (cart.length < 1) {
-        showNotificationBox('Your cart is empty! Please add some items to your cart before checking out.');
+        showNotificationBox('Your cart is empty! Please add some items to your cart before sending.');
         return;
     }
 
@@ -242,7 +242,7 @@ const checkout = () => {
         const digitsOnly = customerPhone.replace(/\D/g, '');
 
         if (!customerName) {
-            showNotificationBox('Room number is required to place an order.');
+            showNotificationBox('Name is required to place an order.');
             return;
         }
         if (!customerPhone) {
@@ -266,7 +266,7 @@ const checkout = () => {
         });
 
         const totalPrice = simplifiedCart.reduce((acc, item) => acc + item.quantity * item.price, 0);
-        const discordWebhookURL = 'https://discord.com/api/webhooks/1410333374085857280/wd3SnzWcrsGQ5nTCPspKHCS8lSUVqMAuQqo24T9r2FSZ9jjYpX3XOOXOGascmTT7TgfZ';
+        const discordWebhookURL = 'https://discord.com/api/webhooks/1431329101641154560/VMOfp9kblwoKF4upPZqnOlSEN2GhLWSV0sGBuB33w3PXKrXPL_bYDUEqVEbYseO37BBx';
 
         fetch(discordWebhookURL, {
             method: 'POST',
@@ -304,7 +304,7 @@ const checkout = () => {
                 cart: simplifiedCart
             });
             localStorage.setItem('orderHistory', JSON.stringify(orderHistory));
-            showNotificationBox(`Thank you, ${customerName}! Your order has been placed.`);
+            showNotificationBox(`Thank you, ${customerName}! Your order has been send, we will contact you later.`);
             cart = [];
             addCartToHTML();
             addCartToMemory();
