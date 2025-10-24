@@ -65,9 +65,39 @@ productModal.innerHTML = `
         <h2 id="modalName"></h2>
         <p id="modalDescription"></p>
         <div id="modalPrice" style="margin-bottom: 20px; font-size: 20px;"></div>
+
+        <!-- 👇 Quantity selector -->
+        <div id="modalQuantity" style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            font-size: 6vw;
+        ">
+            <button id="qtyMinus" style="
+                width: 10vw; height: 10vw;
+                font-size: 7vw;
+                border-radius: 50%;
+                border: 1px solid #ccc;
+                background: #f2f2f2;
+                cursor: pointer;
+            ">–</button>
+            <span id="qtyValue" style="font-size: 7vw;">1</span>
+            <button id="qtyPlus" style="
+                width: 10vw; height: 10vw;
+                font-size: 7vw;
+                border-radius: 50%;
+                border: 1px solid #ccc;
+                background: #f2f2f2;
+                cursor: pointer;
+            ">+</button>
+        </div>
+
         <button id="modalAddCart" class="addCart" style="padding: 10px 20px; font-size: 16px; background-color: black; color: white; border: none; border-radius: 5px;">Add To Cart</button>
     </div>
 `;
+
 document.body.appendChild(productModal);
 
 const modalImage = document.getElementById('modalImage');
@@ -78,6 +108,32 @@ const modalAddCart = document.getElementById('modalAddCart');
 const closeModal = document.getElementById('closeModal');
 
 let currentModalProduct = null;
+let qtyValue = 1; // default quantity
+let qtyValueSpan, qtyPlus, qtyMinus;
+
+const resetModalQuantity = () => {
+    qtyValue = 1;
+    qtyValueSpan.textContent = qtyValue;
+};
+
+const setupQuantityButtons = () => {
+    qtyValueSpan = document.getElementById('qtyValue');
+    qtyPlus = document.getElementById('qtyPlus');
+    qtyMinus = document.getElementById('qtyMinus');
+
+    qtyPlus.addEventListener('click', () => {
+        qtyValue++;
+        qtyValueSpan.textContent = qtyValue;
+    });
+
+    qtyMinus.addEventListener('click', () => {
+        if (qtyValue > 1) {
+            qtyValue--;
+            qtyValueSpan.textContent = qtyValue;
+        }
+    });
+};
+
 
 const showProductModal = (product) => {
     modalImage.src = product.image;
@@ -86,7 +142,13 @@ const showProductModal = (product) => {
     modalPrice.textContent = `RM${product.price}`;
     currentModalProduct = product;
     productModal.style.display = 'flex';
+    resetModalQuantity(); // ✅ only reset, don't rebind
 };
+
+document.body.appendChild(productModal);
+setupQuantityButtons(); // ✅ only run once, not every time
+
+
 
 closeModal.addEventListener('click', () => {
     productModal.style.display = 'none';
@@ -100,11 +162,14 @@ window.addEventListener('click', (e) => {
 
 modalAddCart.addEventListener('click', () => {
     if (currentModalProduct) {
-        addToCart(currentModalProduct.id);
+        for (let i = 0; i < qtyValue; i++) {
+            addToCart(currentModalProduct.id);
+        }
         productModal.style.display = 'none';
-        showNotificationBox('You have added to cart');
+        showNotificationBox(`Added ${qtyValue} × ${currentModalProduct.name} to cart`);
     }
 });
+
 
 // Overlay for cart
 const cartOverlay = document.getElementById('cartOverlay');
