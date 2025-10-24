@@ -16,8 +16,15 @@ html, body {
   font-family: var(--font-main);
   overflow-x: hidden;
   width: 100%;
-  background: #fff;
+  background: 
+  linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+  url('https://imgs.search.brave.com/Y30O7qEF4Xb-QxwQ8L38cAlno4-jNyl18j2lVDuwuI4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAzLzc4LzcxLzI5/LzM2MF9GXzM3ODcx/MjkzNV9kSmVGdXl3/anMyN1A0M2JQQTA3/RzVBWndVYUl6VVFC/eC5qcGc') 
+  no-repeat center center fixed;
+background-size: cover;
+     
 }
+
+
 
 svg {
   width: 10vw;
@@ -35,7 +42,8 @@ header {
   top: 0;
   width: 100%;
   height: 14vw;
-  background: var(--color-bg);
+  background: rgba(0,0,0,0.85); 
+      backdrop-filter: blur(10px); 
   display: flex;
   justify-content: space-between;
   align-items: center;
