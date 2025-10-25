@@ -368,23 +368,31 @@ body.showCart #cartOverlay {
   background-color: var(--color-overlay);
   display: none;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center; /* ✅ center the modal on screen */
   z-index: 100000;
 }
 
 #productModal > div {
-background: white !important;
-border-radius: 3vw 3vw 0 0 !important;
-width: 100vw !important;
-max-width: none !important;
-font-family: 'Poppins', sans-serif !important;
-box-shadow: 0 0 20px rgba(0,0,0,0.2) !important;
-position: relative !important;
-text-align: center !important;
-animation: slide-up 0.4s ease forwards !important;
-padding: 4vw !important; /* Adjust as needed */
+  background: white !important;
+  border-radius: 3vw 3vw 0 0 !important;
+  width: 100vw !important;
+  max-width: none !important;
+  font-family: 'Poppins', sans-serif !important;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2) !important;
+  position: relative !important;
+  text-align: center !important;
+  animation: slide-up 0.4s ease forwards !important;
+  padding: 4vw !important;
+
+  /* ✅ important for mobile usability */
+  max-height: 90vh !important;       /* prevent modal overflow */
+  overflow-y: auto !important;       /* allow scroll if content is tall */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
+/* Product image */
 #productModal img {
   width: 100%;
   max-height: 50vh;
@@ -395,61 +403,75 @@ padding: 4vw !important; /* Adjust as needed */
   border: 1px solid #ddd;
 }
 
+/* Product name */
 #productModal h2 {
   font-size: 6vw;
   margin-bottom: 2vw;
 }
 
+/* Product description */
 #productModal p {
   font-size: 4vw;
   margin-bottom: 3vw;
   color: black;
 }
 
-
+/* Product price */
 #productModal #modalPrice {
-font-size: 8vw !important;
-font-weight: bold !important;
-color: #ff0000 !important;
-margin-bottom: 3vw !important;
+  font-size: 8vw !important;
+  font-weight: bold !important;
+  color: #ff0000 !important;
+  margin-bottom: 3vw !important;
 }
 
+/* ✅ Make Add To Cart button always visible */
 #productModal #modalAddCart {
-background-color: black !important;
-color: white !important;
-border: none !important;
-padding: 5vw 10vw !important;
-font-size: 7vw !important;
-border-radius: 2vw !important;
-cursor: pointer !important;
-transition: background-color 0.3s ease !important;
+  background-color: black !important;
+  color: white !important;
+  border: none !important;
+  padding: 5vw 10vw !important;
+  font-size: 7vw !important;
+  border-radius: 2vw !important;
+  cursor: pointer !important;
+  transition: background-color 0.3s ease !important;
+
+  position: sticky;  /* stays visible while scrolling */
+  bottom: 0;
+  z-index: 100001;
 }
 
-
+/* Hover effect */
 #modalAddCart:hover {
   background: var(--color-accent);
 }
 
+/* Close button */
 #closeModal {
-position: absolute !important;
-top: -1vw !important;
-right: 2vw !important;
-font-size: 12vw !important; /* big size */
-color: black !important;
-cursor: pointer !important;
-user-select: none !important;
-font-weight: bold !important;
-z-index: 100001 !important;
-line-height: 1 !important;
-background: transparent !important;
-padding: 0 !important;
-transition: color 0.3s ease !important;
+  position: absolute !important;
+  top: -1vw !important;
+  right: 2vw !important;
+  font-size: 12vw !important;
+  color: black !important;
+  cursor: pointer !important;
+  user-select: none !important;
+  font-weight: bold !important;
+  z-index: 100001 !important;
+  line-height: 1 !important;
+  background: transparent !important;
+  padding: 0 !important;
+  transition: color 0.3s ease !important;
 }
-
 
 #closeModal:hover {
   color: var(--color-accent);
 }
+
+/* Simple slide-up animation */
+@keyframes slide-up {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
 
 /* ============ Other ============ */
 .square {
@@ -465,4 +487,89 @@ transition: color 0.3s ease !important;
 
 /* ============ Media ============ */
 /* ======== Desktop / Laptop View ======== */
+@media only screen and (min-width: 993px) {
+  header {
+    height: 80px;
+    padding: 20px 40px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  #viewOrderHistoryBtn {
+    font-size: 2rem;
+  }
+
+  .icon-cart svg {
+    width: 40px;
+  }
+
+  .icon-cart span {
+    width: 25px;
+    height: 25px;
+    font-size: 14px;
+  }
+
+  .listProduct {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 120px 40px 60px;
+  }
+
+  .listProduct .item {
+    border-radius: 10px;
+    background: white;
+    transition: transform 0.2s ease;
+  }
+
+  .listProduct .item:hover {
+    transform: scale(1.03);
+  }
+
+  .listProduct .item h2 {
+    font-size: 1.5rem;
+  }
+
+  .listProduct .item .price {
+    font-size: 1.3rem;
+  }
+
+  .listProduct .item button {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  .cartTab {
+    width: 400px;
+    right: -400px;
+  }
+
+  body.showCart .container {
+    transform: translateX(-100px);
+  }
+
+  .footer {
+    font-size: 1rem;
+    padding: 40px;
+  }
+
+  #productModal > div {
+    width: 600px !important;
+    border-radius: 20px !important;
+  }
+
+  #productModal h2 {
+    font-size: 2rem;
+  }
+
+  #productModal p {
+    font-size: 1.2rem;
+  }
+
+  #productModal #modalAddCart {
+    font-size: 1.2rem !important;
+    padding: 10px 20px !important;
+  }
 }
+
