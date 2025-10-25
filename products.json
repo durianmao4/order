@@ -7,13 +7,6 @@
         "image": "kahwin.jpeg",
         "description": "Our Durian Kahwin is a special because of its durian varieties, created when different durian trees naturally cross pollinate. This “married” durian combines the best traits of its parents, rich aroma, smooth texture, and balanced flavor. "
     },
-  {
-        "id": 2,
-        "name": "DURIAN KAMPUNG 1KG",
-        "price": 13,
-        "image": "kampung.jpeg",
-        "description": "Our Durian Kampung is a traditional, wild grown durian variety found across Malaysia. each fruit has its own unique flavor, aroma, and texture no two are exactly the same. Some are sweet and creamy, others slightly bitter or sticky, making every bite a surprise. "
-    },
    
 {
         "id": 3,
@@ -23,12 +16,6 @@
         "description": "A premium hand-packed mix of Malaysia’s best durians each fruit carefully selected and recorded for the perfect balance of flavor, creaminess, and aroma. Our Durian Kahwin A Package combines top quality varieties to deliver a truly rich and satisfying durian experience in every bite. Ideal for sharing or gifting to durian lovers who appreciate the finest taste."
     },
 
-    {
-        "id": 4,
-        "name": "DURAIN KAMPUNG PACKAGED",
-        "price": 21,
-        "image": "durian_kampung_box.jpeg",
-        "description": "Enjoy the authentic taste of Malaysia’s countryside with our Durian Kampung Packaged. Hand-picked from local orchards and freshly packed to preserve its natural sweetness and aroma, this durian offers a classic, nostalgic flavor loved by true durian fans. Perfect for those who appreciate the pure, traditional taste of kampung durians."
-    }
+    
    
 ]
