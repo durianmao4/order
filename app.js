@@ -64,35 +64,36 @@ productModal.innerHTML = `
         <img id="modalImage" src="" style="max-width: 100%; height: auto; border-radius: 10px;" />
         <h2 id="modalName"></h2>
         <p id="modalDescription"></p>
-        <div id="modalPrice" style="margin-bottom: 20px; font-size: 20px;"></div>
+       <!-- Price and Quantity Row -->
+<div id="modalPriceQuantity" style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10vw; /* space between price and quantity */
+    margin-bottom: 20px;
+">
+    <div id="modalPrice" style="font-size: 20px; font-weight: bold; color: #ff0000;">RM0</div>
+    <div id="modalQuantity" style="display: flex; align-items: center; gap: 10px;">
+        <button id="qtyMinus" style="
+            width: 10vw; height: 10vw;
+            font-size: 7vw;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+            background: #f2f2f2;
+            cursor: pointer;
+        ">–</button>
+        <span id="qtyValue" style="font-size: 7vw;">1</span>
+        <button id="qtyPlus" style="
+            width: 10vw; height: 10vw;
+            font-size: 7vw;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+            background: #f2f2f2;
+            cursor: pointer;
+        ">+</button>
+    </div>
+</div>
 
-        <!-- 👇 Quantity selector -->
-        <div id="modalQuantity" style="
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 20px;
-            font-size: 6vw;
-        ">
-            <button id="qtyMinus" style="
-                width: 10vw; height: 10vw;
-                font-size: 7vw;
-                border-radius: 50%;
-                border: 1px solid #ccc;
-                background: #f2f2f2;
-                cursor: pointer;
-            ">–</button>
-            <span id="qtyValue" style="font-size: 7vw;">1</span>
-            <button id="qtyPlus" style="
-                width: 10vw; height: 10vw;
-                font-size: 7vw;
-                border-radius: 50%;
-                border: 1px solid #ccc;
-                background: #f2f2f2;
-                cursor: pointer;
-            ">+</button>
-        </div>
 
         <button id="modalAddCart" class="addCart" style="padding: 10px 20px; font-size: 16px; background-color: black; color: white; border: none; border-radius: 5px;">Add To Cart</button>
     </div>
