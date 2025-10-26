@@ -385,7 +385,7 @@ body.showCart #cartOverlay {
   padding: 4vw !important;
 
   /* ✅ important for mobile usability */
-  max-height: 90vh !important;       /* prevent modal overflow */
+  max-height: 98vh !important;       /* prevent modal overflow */
   overflow-y: auto !important;       /* allow scroll if content is tall */
   display: flex;
   flex-direction: column;
