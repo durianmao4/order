@@ -73,7 +73,7 @@ productModal.innerHTML = `
     margin-bottom: 20px;
 ">
 
-    <div id="modalPrice" style="font-size: 7vw; font-weight: bold; color: #ff0000;">RM0</div>
+    <div id="modalPrice" style="font-size: 7vw; bottom:10vh; font-weight: bold; color: #ff0000;">RM0</div>
 
     <div id="modalQuantity" style="display: flex; align-items: center; gap: 10px;">
         <button id="qtyMinus" style="
