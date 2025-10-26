@@ -366,12 +366,18 @@ body.showCart #cartOverlay {
   width: 100vw;
   height: 100vh;
   background-color: var(--color-overlay);
-  display: none;
-  justify-content: center;
-  align-items: center; /* ✅ center the modal on screen */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;   /* start from top instead of center */
+  align-items: center;
   z-index: 100000;
+  overflow-y: auto !important;   /* make entire modal scrollable */
+  -webkit-overflow-scrolling: touch !important; /* smooth iPhone scroll */
+  padding-top: 4vh;              /* small top margin for safe area */
+  padding-bottom: 12vh;          /* spacing for bottom bar */
 }
 
+/* White content box (scrollable container) */
 #productModal > div {
   background: white !important;
   border-radius: 3vw 3vw 0 0 !important;
@@ -379,18 +385,16 @@ body.showCart #cartOverlay {
   max-width: none !important;
   font-family: 'Poppins', sans-serif !important;
   box-shadow: 0 0 20px rgba(0,0,0,0.2) !important;
-  position: relative !important;
   text-align: center !important;
   animation: slide-up 0.4s ease forwards !important;
-  padding: 4vw !important;
-
-  /* ✅ important for mobile usability */
-  max-height: 98vh !important;       /* prevent modal overflow */
-  overflow-y: auto !important;       /* allow scroll if content is tall */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  padding: 5vw !important;
+  
+  /* Make sure modal can grow fully */
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
 }
+
 
 /* Product image */
 #productModal img {
