@@ -424,7 +424,7 @@ body.showCart #cartOverlay {
   margin-bottom: 3vw !important;
 }
 
-/* ✅ Make Add To Cart button always visible */
+/* ✅////////////////////////////////////////////////////////////////////////////////////////////////// Make Add To Cart button always visible */
 #productModal #modalAddCart {
   background-color: black !important;
   color: white !important;
