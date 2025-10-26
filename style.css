@@ -436,7 +436,7 @@ body.showCart #cartOverlay {
   transition: background-color 0.3s ease !important;
 
   position: sticky;  /* stays visible while scrolling */
-  bottom: 0;
+  bottom: 15vh;
   z-index: 100001;
 }
 
@@ -573,27 +573,4 @@ body.showCart #cartOverlay {
   }
 }
 
-/* ==== Raise sticky Add To Cart button on all phones ==== */
-#productModal #modalAddCart {
-  position: sticky;
-  bottom: 10vh !important; /* 👈 raises the button higher on screen */
-  z-index: 100001;
-  background-color: black !important;
-  color: white !important;
-  border: none !important;
-  padding: 5vw 10vw !important;
-  font-size: 7vw !important;
-  border-radius: 2vw !important;
-  cursor: pointer !important;
-  transition: background-color 0.3s ease !important;
-}
 
-/* Optional hover effect */
-#productModal #modalAddCart:hover {
-  background: var(--color-accent);
-}
-
-/* Make sure modal content doesn’t get cut off behind the raised button */
-#productModal > div {
-  padding-bottom: 25vh !important;
-}
