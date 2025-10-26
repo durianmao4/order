@@ -367,9 +367,11 @@ body.showCart #cartOverlay {
   height: 100vh;
   background-color: var(--color-overlay);
   display: none;
-  justify-content: center;
-  align-items: center; /* ✅ center the modal on screen */
+  justify-content: flex-start;   /* ⬆️ start from top instead of center */
+  align-items: center;
   z-index: 100000;
+  overflow-y: auto;              /* ⬆️ allow entire modal to scroll */
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on iPhone */
 }
 
 #productModal > div {
@@ -384,9 +386,11 @@ body.showCart #cartOverlay {
   animation: slide-up 0.4s ease forwards !important;
   padding: 4vw !important;
 
-  /* ✅ important for mobile usability */
-  max-height: 90vh !important;       /* prevent modal overflow */
-  overflow-y: auto !important;       /* allow scroll if content is tall */
+  /* ✅ allow more vertical scrolling and space */
+  max-height: none !important;   /* ⬆️ remove the 90vh limit */
+  overflow-y: visible !important;
+  margin-top: 4vh;               /* add top breathing space */
+  margin-bottom: 8vh;            /* avoid bottom clipping */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
