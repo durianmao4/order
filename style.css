@@ -436,7 +436,7 @@ body.showCart #cartOverlay {
   transition: background-color 0.3s ease !important;
 
   position: sticky;  /* stays visible while scrolling */
-  bottom: 15vh;
+  bottom: 8vh;
   z-index: 100001;
 }
 
