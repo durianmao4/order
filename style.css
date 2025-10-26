@@ -573,3 +573,40 @@ body.showCart #cartOverlay {
   }
 }
 
+/* --- iPhone Safari Safe Area Fix for Add-to-Cart Button --- */
+.add-to-cart,
+button.add-to-cart,
+.productModal .add-to-cart {
+  position: fixed;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 15px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  max-width: 400px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 14px 0;
+  z-index: 9999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.add-to-cart:hover {
+  background-color: #c10000;
+}
+
+@supports (padding: max(0px)) {
+  .add-to-cart {
+    bottom: calc(max(env(safe-area-inset-bottom), 20px) + 15px);
+  }
+}
+
+/* Optional: make sure the modal or cart doesn’t overlap it */
+.productModal {
+  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 90px);
+}
